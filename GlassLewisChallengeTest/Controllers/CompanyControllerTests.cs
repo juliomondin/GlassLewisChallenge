@@ -124,7 +124,7 @@ namespace GlassLewisChallengeTest.Controllers
         public void Update_Company()
         {
             var request = _fix.Build<Company>().With(x => x.Isin, "BR123").Create();
-            _validator.Validate(request, _service).Returns(true);
+            _validator.Validate(request, _service,true).Returns(true);
             var controller = new CompanyController(_logger, _service, _validator);
             var result = controller.Update(request.Id, request);
             result.Result.Should().BeOfType<OkObjectResult>();
