@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Linq;
 using System.Text;
 
@@ -40,13 +41,18 @@ namespace GlassLewisChallenge
             var database = Configuration["Database"] ?? "Colours";
             var connectionString = $"Server={server},{port};Initial Catalog={database};User Id={user};Password={password}";
 
-            // Servico de health checks 
             services.AddHealthChecks()
-                // health check para o database
-                .AddCheck( "Comanda-check", new SqlHealthCheck(connectionString), HealthStatus.Unhealthy, new string[] { "companydb" });
+                .AddCheck("Company-check", new SqlHealthCheck(connectionString), HealthStatus.Unhealthy, new string[] { "companydb" });
+
             services.AddDbContext<CompanyContext>(options =>
-                 options.UseSqlServer($"Server={server},{port};Initial Catalog={database};User Id={user};Password={password}").UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
-             );
+                 options.UseSqlServer($"Server={server},{port};Initial Catalog={database};User Id={user};Password={password}",
+                 opt =>
+                 {
+                     opt.EnableRetryOnFailure(maxRetryCount: 10, maxRetryDelay: TimeSpan.FromSeconds(10),
+                       errorNumbersToAdd: null); 
+                     opt.MigrationsAssembly("GlassLewisChallenge");
+                 }).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+        );
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
             var appSettings = appSettingsSection.Get<AppSettings>();
