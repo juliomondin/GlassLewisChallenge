@@ -70,11 +70,17 @@ namespace GlassLewisChallengeIntegratedTests
         [Fact]
         public async Task Can_Insert_Company()
         {
-            var httpResponse = await _client.GetAsync("/company/isin/AR123");
+            var request = new Company() { Isin = "II000", Exchange = "BBB", Name = "JulioCompany", Ticker = "tickerteste" };
+            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var contentString = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
+            contentString.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var httpResponse = await _client.PostAsync("/company", contentString);
             httpResponse.EnsureSuccessStatusCode();
             var stringResponse = await httpResponse.Content.ReadAsStringAsync();
             var company = JsonConvert.DeserializeObject<Company>(stringResponse);
-            Assert.True(company.Name == "GlassLewis");
+            Assert.True(company.Name == "JulioCompany");
+            Assert.True(company.Ticker == "tickerteste");
         }
 
         [Fact]

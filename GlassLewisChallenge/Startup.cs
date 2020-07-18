@@ -27,7 +27,6 @@ namespace GlassLewisChallenge
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IRepository, Repository>();
@@ -44,9 +43,6 @@ namespace GlassLewisChallenge
              services.AddDbContext<CompanyContext>(options =>
                  options.UseSqlServer($"Server={server},{port};Initial Catalog={database};User Id={user};Password={password}").UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
              );
-
-
-            // configure strongly typed settings objects
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
             var appSettings = appSettingsSection.Get<AppSettings>();
@@ -80,7 +76,6 @@ namespace GlassLewisChallenge
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -92,7 +87,6 @@ namespace GlassLewisChallenge
                 app.UseExceptionHandler("/error");
             }
 
-            // global cors policy
             app.UseCors(x => x
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
@@ -106,7 +100,6 @@ namespace GlassLewisChallenge
             {
                 if (request.Headers.ContainsKey("X-External-Host"))
                 {
-                    // Change document server settings to public
                     document.Host = request.Headers["X-External-Host"].First().ToString();
 
                     document.BasePath = request.Headers["X-External-Path"].First().ToString();
@@ -115,7 +108,6 @@ namespace GlassLewisChallenge
 
             app.UseSwaggerUi3(config => config.TransformToExternalPath = (internalUiRoute, request) =>
             {
-                // The header X-External-Path is set in the nginx.conf file
                 var externalPath = request.Headers.ContainsKey("X-External-Path") ? request.Headers["X-External-Path"].First().ToString() : "";
                 return externalPath + internalUiRoute;
             });
