@@ -1,0 +1,20 @@
+﻿version: '3'
+services:
+    ms-sql-server:
+        image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+        environment:
+            ACCEPT_EULA: "Y"
+            SA_PASSWORD: "Pa55w0rd2019"
+            MSSQL_PID: "Express"
+        ports:
+            - "1433:1433"
+    glass-lewis-api:
+        build: .
+        environment:
+            DBServer: "ms-sql-server"
+            DBPort: "1433"
+            DBUser: "SA"
+            DBPassword: "Pa55w0rd2019"
+            Database: "Companies"
+        ports: 
+            - "8080:80"
