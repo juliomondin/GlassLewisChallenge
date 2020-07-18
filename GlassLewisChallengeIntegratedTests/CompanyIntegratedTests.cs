@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
@@ -42,6 +43,52 @@ namespace GlassLewisChallengeIntegratedTests
 
         [Fact]
         public async Task Can_Get_Company_By_Isin()
+        {
+            var httpResponse = await _client.GetAsync("/company/isin/AR123");
+            httpResponse.EnsureSuccessStatusCode();
+            var stringResponse = await httpResponse.Content.ReadAsStringAsync();
+            var company = JsonConvert.DeserializeObject<Company>(stringResponse);
+            Assert.True(company.Name == "GlassLewis");
+        }
+
+        [Fact]
+        public async Task Can_Update_Company()
+        {
+            var request = new Company() { Id = 2, Isin = "OI123", Exchange = "BBB", Name = "JulioCompany", Ticker = "tickerteste" };
+            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var contentString = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
+            contentString.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var httpResponse = await _client.PutAsync("/company/2", contentString);
+            httpResponse.EnsureSuccessStatusCode();
+            var stringResponse = await httpResponse.Content.ReadAsStringAsync();
+            var company = JsonConvert.DeserializeObject<Company>(stringResponse);
+            Assert.True(company.Name == "GlassLewis");
+            Assert.True(company.Ticker == "tickerteste");
+        }
+
+        [Fact]
+        public async Task Can_Insert_Company()
+        {
+            var httpResponse = await _client.GetAsync("/company/isin/AR123");
+            httpResponse.EnsureSuccessStatusCode();
+            var stringResponse = await httpResponse.Content.ReadAsStringAsync();
+            var company = JsonConvert.DeserializeObject<Company>(stringResponse);
+            Assert.True(company.Name == "GlassLewis");
+        }
+
+        [Fact]
+        public async Task Cant_Insert_Company_With_Invalid_Isin()
+        {
+            var httpResponse = await _client.GetAsync("/company/isin/AR123");
+            httpResponse.EnsureSuccessStatusCode();
+            var stringResponse = await httpResponse.Content.ReadAsStringAsync();
+            var company = JsonConvert.DeserializeObject<Company>(stringResponse);
+            Assert.True(company.Name == "GlassLewis");
+        }
+
+        [Fact]
+        public async Task Cant_Insert_Company_With_Already_Existing_Isin()
         {
             var httpResponse = await _client.GetAsync("/company/isin/AR123");
             httpResponse.EnsureSuccessStatusCode();

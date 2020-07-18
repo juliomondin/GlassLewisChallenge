@@ -59,7 +59,7 @@ namespace GlassLewisChallange.Controllers
         public ActionResult<Company> Update(int companyId, [FromBody] Company company)
         {
             company.Id = companyId;
-            if (_validator.Validate(company,_companyService))
+            if (_validator.Validate(company, _companyService, true))
             {
                 var result = _companyService.Update(company);
                 return new OkObjectResult(result);
@@ -72,7 +72,7 @@ namespace GlassLewisChallange.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<Company> Insert([FromBody] Company company)
         {
-            if (_validator.Validate(company,_companyService))
+            if (_validator.Validate(company, _companyService))
             {
                 var result = _companyService.Insert(company);
                 return new CreatedResult("/company", result);

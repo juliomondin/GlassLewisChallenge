@@ -48,5 +48,12 @@ namespace GlassLewisChallange.Domain
             return true;
 
         }
+
+        public bool CheckObrigatoryFields()
+        {
+            if (string.IsNullOrEmpty(this.Ticker) || string.IsNullOrEmpty(this.Exchange) || string.IsNullOrEmpty(this.Name))
+                return false;
+            return true;
+        }
     }
 }
