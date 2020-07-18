@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using GlassLewisChallenge.Domain;
-using GlassLewisChallenge.Interfaces;
+﻿using GlassLewisChallenge.Domain;
 using GlassLewisChallenge.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
 
 namespace GlassLewisChallenge.Controllers
 {

@@ -1,12 +1,12 @@
-﻿using System;
+﻿using GlassLewisChallenge;
 using GlassLewisChallenge.Infraestructure;
-using GlassLewisChallenge;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace GlassLewisChallengeIntegratedTests
 {
@@ -54,7 +54,7 @@ namespace GlassLewisChallengeIntegratedTests
                     }
                 }
             });
-        
+
         }
     }
 }

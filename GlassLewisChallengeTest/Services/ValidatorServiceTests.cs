@@ -1,10 +1,9 @@
-﻿using FluentAssertions;
+﻿using AutoFixture;
+using FluentAssertions;
 using GlassLewisChallenge.Domain;
-using AutoFixture;
 using GlassLewisChallenge.Interfaces;
 using GlassLewisChallenge.Services;
 using NSubstitute;
-using System.Collections.Generic;
 using Xunit;
 
 namespace GlassLewisChallengeTest.Services

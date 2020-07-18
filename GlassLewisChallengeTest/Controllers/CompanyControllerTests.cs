@@ -3,7 +3,6 @@ using FluentAssertions;
 using GlassLewisChallenge.Controllers;
 using GlassLewisChallenge.Domain;
 using GlassLewisChallenge.Interfaces;
-using GlassLewisChallenge.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
@@ -104,7 +103,7 @@ namespace GlassLewisChallengeTest.Controllers
         public void Insert_Fails_When_Validation_Fail()
         {
             var request = _fix.Create<Company>();
-            _validator.Validate(request,_service).Returns(false);
+            _validator.Validate(request, _service).Returns(false);
             var controller = new CompanyController(_logger, _service, _validator);
             var result = controller.Insert(request);
             result.Result.Should().BeOfType<BadRequestResult>();
@@ -124,7 +123,7 @@ namespace GlassLewisChallengeTest.Controllers
         public void Update_Company()
         {
             var request = _fix.Build<Company>().With(x => x.Isin, "BR123").Create();
-            _validator.Validate(request, _service,true).Returns(true);
+            _validator.Validate(request, _service, true).Returns(true);
             var controller = new CompanyController(_logger, _service, _validator);
             var result = controller.Update(request.Id, request);
             result.Result.Should().BeOfType<OkObjectResult>();

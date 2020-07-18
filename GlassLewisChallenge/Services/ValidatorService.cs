@@ -1,7 +1,5 @@
 ﻿using GlassLewisChallenge.Domain;
 using GlassLewisChallenge.Interfaces;
-using GlassLewisChallenge.Interfaces;
-using System;
 
 namespace GlassLewisChallenge.Services
 {

@@ -1,10 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using GlassLewisChallenge.Authentication;
 using GlassLewisChallenge.Interfaces;
-using GlassLewisChallenge.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace GlassLewisChallenge.Controllers
 {

@@ -1,5 +1,5 @@
-﻿using GlassLewisChallenge.Interfaces;
-using GlassLewisChallenge.Infraestructure;
+﻿using GlassLewisChallenge.Infraestructure;
+using GlassLewisChallenge.Interfaces;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -8,7 +8,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace GlassLewisChallenge.Authentication
 {
@@ -25,7 +24,7 @@ namespace GlassLewisChallenge.Authentication
         {
             _appSettings = appSettings.Value;
         }
-        
+
         public User Authenticate(string username, string password)
         {
             var user = _users.SingleOrDefault(x => x.Username == username && x.Password == password);
@@ -57,7 +56,8 @@ namespace GlassLewisChallenge.Authentication
         public IEnumerable<User> GetAll()
         {
             // return users without passwords
-            return _users.Select(x => {
+            return _users.Select(x =>
+            {
                 x.Password = null;
                 return x;
             });

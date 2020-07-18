@@ -11,7 +11,7 @@ namespace GlassLewisChallengeTests.Services
     public class CompanyServiceTests
     {
         private readonly IRepository _mock = Substitute.For<IRepository>();
-        
+
         [Fact]
         public void GetAll_Companies()
         {

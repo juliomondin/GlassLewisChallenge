@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace GlassLewisChallenge.Authentication
+﻿namespace GlassLewisChallenge.Authentication
 {
     public class User
     {

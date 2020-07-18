@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GlassLewisChallenge.Infraestructure
 {
-    public class CompanyContext: DbContext
+    public class CompanyContext : DbContext
     {
         public CompanyContext(DbContextOptions<CompanyContext> options) : base(options)
         {

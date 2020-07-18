@@ -1,8 +1,5 @@
 ﻿using GlassLewisChallenge.Domain;
 using GlassLewisChallenge.Infraestructure;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GlassLewisChallengeIntegratedTests
 {

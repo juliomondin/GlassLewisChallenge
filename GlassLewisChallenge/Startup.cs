@@ -1,10 +1,8 @@
-﻿using GlassLewisChallenge.Infraestructure;
-using GlassLewisChallenge.Interfaces;
-using GlassLewisChallenge.Services;
-using GlassLewisChallenge.Authentication;
+﻿using GlassLewisChallenge.Authentication;
 using GlassLewisChallenge.Filters;
 using GlassLewisChallenge.Infraestructure;
 using GlassLewisChallenge.Interfaces;
+using GlassLewisChallenge.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,7 +13,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Linq;
 using System.Text;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace GlassLewisChallenge
 {
@@ -115,7 +112,7 @@ namespace GlassLewisChallenge
             });
 
 
-             PrepDB.PrepPopulation(app);
+            PrepDB.PrepPopulation(app);
         }
     }
 }

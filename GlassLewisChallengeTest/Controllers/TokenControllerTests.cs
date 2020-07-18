@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
+using GlassLewisChallenge.Authentication;
 using GlassLewisChallenge.Controllers;
 using GlassLewisChallenge.Interfaces;
-using GlassLewisChallenge.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
@@ -12,7 +12,7 @@ namespace GlassLewisChallengeTests.Controllers
 {
     public class TokenControllerTests
     {
-        
+
         public readonly ITokenManager _mock = Substitute.For<ITokenManager>();
         public readonly ILogger<TokenController> _logger = Substitute.For<ILogger<TokenController>>();
 
@@ -41,10 +41,10 @@ namespace GlassLewisChallengeTests.Controllers
         public void Authenticate_Method_When_Doest_Not_User_Exist()
         {
             var user = new User { Id = 1, Password = "wrongpassword", Username = "wronguser" };
-            _mock.Authenticate(user.Username,user.Password).Returns(null as User);
+            _mock.Authenticate(user.Username, user.Password).Returns(null as User);
             var controller = new TokenController(_logger, _mock);
 
-            var result =  controller.Authenticate(user);
+            var result = controller.Authenticate(user);
             result.Result.Should().BeOfType<BadRequestObjectResult>();
         }
     }
