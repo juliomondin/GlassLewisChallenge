@@ -63,7 +63,7 @@ namespace GlassLewisChallengeIntegratedTests
             httpResponse.EnsureSuccessStatusCode();
             var stringResponse = await httpResponse.Content.ReadAsStringAsync();
             var company = JsonConvert.DeserializeObject<Company>(stringResponse);
-            Assert.True(company.Name == "GlassLewis");
+            Assert.True(company.Name == "JulioCompany");
             Assert.True(company.Ticker == "tickerteste");
         }
 

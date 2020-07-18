@@ -24,7 +24,7 @@ namespace GlassLewisChallengeIntegratedTests
                 // Add a database context (AppDbContext) using an in-memory database for testing.
                 services.AddDbContext<CompanyContext>(options =>
                 {
-                    options.UseInMemoryDatabase("InMemoryAppDb");
+                    options.UseInMemoryDatabase("InMemoryAppDb").UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
                     options.UseInternalServiceProvider(serviceProvider);
                 });
 

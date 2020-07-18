@@ -42,7 +42,7 @@ namespace GlassLewisChallenge
             var database = Configuration["Database"] ?? "Colours";
 
              services.AddDbContext<CompanyContext>(options =>
-                 options.UseSqlServer($"Server={server},{port};Initial Catalog={database};User Id={user};Password={password}")
+                 options.UseSqlServer($"Server={server},{port};Initial Catalog={database};User Id={user};Password={password}").UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
              );
 
 
