@@ -45,7 +45,7 @@ namespace GlassLewisChallenge
                 .AddCheck("Company-check", new SqlHealthCheck(connectionString), HealthStatus.Unhealthy, new string[] { "companydb" });
 
             services.AddDbContext<CompanyContext>(options =>
-                 options.UseSqlServer($"Server={server},{port};Initial Catalog={database};User Id={user};Password={password}",
+                 options.UseSqlServer(connectionString,
                  opt =>
                  {
                      opt.EnableRetryOnFailure(maxRetryCount: 10, maxRetryDelay: TimeSpan.FromSeconds(10),
