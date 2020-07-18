@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using GlassLewisChallange.Domain;
-using GlassLewisChallange.Interfaces;
+using GlassLewisChallenge.Domain;
+using GlassLewisChallenge.Interfaces;
 using GlassLewisChallenge.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace GlassLewisChallange.Controllers
+namespace GlassLewisChallenge.Controllers
 {
     [Authorize]
     [ApiController]

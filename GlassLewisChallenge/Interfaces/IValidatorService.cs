@@ -1,5 +1,5 @@
-﻿using GlassLewisChallange.Domain;
-using GlassLewisChallange.Interfaces;
+﻿using GlassLewisChallenge.Domain;
+using GlassLewisChallenge.Interfaces;
 
 
 namespace GlassLewisChallenge.Interfaces

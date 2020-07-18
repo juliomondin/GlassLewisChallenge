@@ -9,7 +9,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
 
-namespace GlassLewisChallange.Interfaces
+namespace GlassLewisChallenge.Interfaces
 {
     public interface ITokenManager
     {

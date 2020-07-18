@@ -1,8 +1,8 @@
-﻿using GlassLewisChallange.Domain;
+﻿using GlassLewisChallenge.Domain;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace GlassLewisChallange.Infraestructure
+namespace GlassLewisChallenge.Infraestructure
 {
     public class CompanyContext: DbContext
     {

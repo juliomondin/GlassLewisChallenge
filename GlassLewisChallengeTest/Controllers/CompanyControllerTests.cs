@@ -1,8 +1,8 @@
 ﻿using AutoFixture;
 using FluentAssertions;
-using GlassLewisChallange.Controllers;
-using GlassLewisChallange.Domain;
-using GlassLewisChallange.Interfaces;
+using GlassLewisChallenge.Controllers;
+using GlassLewisChallenge.Domain;
+using GlassLewisChallenge.Interfaces;
 using GlassLewisChallenge.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

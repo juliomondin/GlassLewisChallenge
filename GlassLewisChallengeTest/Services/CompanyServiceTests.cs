@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using GlassLewisChallange.Domain;
-using GlassLewisChallange.Interfaces;
+using GlassLewisChallenge.Domain;
+using GlassLewisChallenge.Interfaces;
 using GlassLewisChallenge.Services;
 using NSubstitute;
 using System.Collections.Generic;

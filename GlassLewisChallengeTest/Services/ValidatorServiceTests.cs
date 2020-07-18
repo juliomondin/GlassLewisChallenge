@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
-using GlassLewisChallange.Domain;
+using GlassLewisChallenge.Domain;
 using AutoFixture;
-using GlassLewisChallange.Interfaces;
+using GlassLewisChallenge.Interfaces;
 using GlassLewisChallenge.Services;
 using NSubstitute;
 using System.Collections.Generic;

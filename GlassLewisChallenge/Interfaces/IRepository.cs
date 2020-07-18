@@ -1,7 +1,7 @@
-﻿using GlassLewisChallange.Domain;
+﻿using GlassLewisChallenge.Domain;
 using System.Collections.Generic;
 
-namespace GlassLewisChallange.Interfaces
+namespace GlassLewisChallenge.Interfaces
 {
     public interface IRepository
     {

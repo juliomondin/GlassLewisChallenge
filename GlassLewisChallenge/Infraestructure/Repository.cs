@@ -1,10 +1,10 @@
-﻿using GlassLewisChallange.Domain;
-using GlassLewisChallange.Interfaces;
+﻿using GlassLewisChallenge.Domain;
+using GlassLewisChallenge.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GlassLewisChallange.Infraestructure
+namespace GlassLewisChallenge.Infraestructure
 {
     public class Repository : IRepository
     {

@@ -1,11 +1,11 @@
-﻿using GlassLewisChallange.Domain;
+﻿using GlassLewisChallenge.Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 
-namespace GlassLewisChallange.Infraestructure
+namespace GlassLewisChallenge.Infraestructure
 {
     public static class PrepDB
     {

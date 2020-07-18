@@ -1,4 +1,4 @@
-﻿using GlassLewisChallange.Interfaces;
+﻿using GlassLewisChallenge.Interfaces;
 using GlassLewisChallenge.Infraestructure;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;

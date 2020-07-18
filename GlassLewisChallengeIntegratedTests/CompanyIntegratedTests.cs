@@ -1,4 +1,4 @@
-﻿using GlassLewisChallange.Domain;
+﻿using GlassLewisChallenge.Domain;
 using GlassLewisChallenge;
 using Newtonsoft.Json;
 using System;

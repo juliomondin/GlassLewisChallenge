@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using GlassLewisChallange.Interfaces;
+using GlassLewisChallenge.Interfaces;
 using GlassLewisChallenge.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace GlassLewisChallange.Controllers
+namespace GlassLewisChallenge.Controllers
 {
     public class TokenController : Controller
     {

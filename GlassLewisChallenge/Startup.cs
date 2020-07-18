@@ -1,5 +1,5 @@
-﻿using GlassLewisChallange.Infraestructure;
-using GlassLewisChallange.Interfaces;
+﻿using GlassLewisChallenge.Infraestructure;
+using GlassLewisChallenge.Interfaces;
 using GlassLewisChallenge.Services;
 using GlassLewisChallenge.Authentication;
 using GlassLewisChallenge.Filters;
@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Linq;
 using System.Text;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace GlassLewisChallenge
 {
@@ -39,8 +40,9 @@ namespace GlassLewisChallenge
             var user = Configuration["DBUser"] ?? "SA";
             var password = Configuration["DBPassword"] ?? "Pa55w0rd2019";
             var database = Configuration["Database"] ?? "Colours";
+            var connectionString = $"Server={server},{port};Initial Catalog={database};User Id={user};Password={password}";
 
-             services.AddDbContext<CompanyContext>(options =>
+            services.AddDbContext<CompanyContext>(options =>
                  options.UseSqlServer($"Server={server},{port};Initial Catalog={database};User Id={user};Password={password}").UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
              );
             var appSettingsSection = Configuration.GetSection("AppSettings");

@@ -1,5 +1,5 @@
 ﻿using System;
-using GlassLewisChallange.Infraestructure;
+using GlassLewisChallenge.Infraestructure;
 using GlassLewisChallenge;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Authorization;

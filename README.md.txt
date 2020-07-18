@@ -9,5 +9,11 @@ To run the project, please go to GlassLewisChallenge/GlassLewinsChallenge and ru
 
 Make sure you have docker and Dot.net core 2.2 on your machine.
 
+
+Project will use the following ports:  1433, 8080, please make sure nothing is running
+on these ports.
+
+to run swagger, please go to localhost:8080/swagger
+
 ## Contact
 jmondinjr@gmail.com

@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using GlassLewisChallange.Controllers;
-using GlassLewisChallange.Interfaces;
+using GlassLewisChallenge.Controllers;
+using GlassLewisChallenge.Interfaces;
 using GlassLewisChallenge.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
