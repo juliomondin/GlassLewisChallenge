@@ -81,25 +81,5 @@ namespace GlassLewisChallengeIntegratedTests
             Assert.True(company.Name == "JulioCompany");
             Assert.True(company.Ticker == "tickerteste");
         }
-
-        [Fact]
-        public async Task Cant_Insert_Company_With_Invalid_Isin()
-        {
-            var httpResponse = await _client.GetAsync("/company/isin/AR123");
-            httpResponse.EnsureSuccessStatusCode();
-            var stringResponse = await httpResponse.Content.ReadAsStringAsync();
-            var company = JsonConvert.DeserializeObject<Company>(stringResponse);
-            Assert.True(company.Name == "GlassLewis");
-        }
-
-        [Fact]
-        public async Task Cant_Insert_Company_With_Already_Existing_Isin()
-        {
-            var httpResponse = await _client.GetAsync("/company/isin/AR123");
-            httpResponse.EnsureSuccessStatusCode();
-            var stringResponse = await httpResponse.Content.ReadAsStringAsync();
-            var company = JsonConvert.DeserializeObject<Company>(stringResponse);
-            Assert.True(company.Name == "GlassLewis");
-        }
     }
 }
