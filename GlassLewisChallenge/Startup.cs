@@ -74,7 +74,7 @@ namespace GlassLewisChallenge
                     ValidateAudience = false,
                     RequireExpirationTime = false,
                     ValidateLifetime = true
-                };
+                }; 
             });*/
 
             services.AddMvc(options => options.Filters.Add(new HttpResponseExceptionFilter())).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -102,7 +102,7 @@ namespace GlassLewisChallenge
                 .AllowAnyMethod()
                 .AllowAnyHeader());
 
-            app.UseAuthentication();
+          //  app.UseAuthentication();
 
             app.UseMvc();
 

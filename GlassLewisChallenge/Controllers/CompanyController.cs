@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace GlassLewisChallenge.Controllers
 {
-    [Authorize]
+   // [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class CompanyController : Controller
