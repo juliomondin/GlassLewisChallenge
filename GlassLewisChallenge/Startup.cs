@@ -57,7 +57,7 @@ namespace GlassLewisChallenge
             services.Configure<AppSettings>(appSettingsSection);
             var appSettings = appSettingsSection.Get<AppSettings>();
 
-            services.AddAuthentication(x =>
+           /* services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -75,7 +75,7 @@ namespace GlassLewisChallenge
                     RequireExpirationTime = false,
                     ValidateLifetime = true
                 };
-            });
+            });*/
 
             services.AddMvc(options => options.Filters.Add(new HttpResponseExceptionFilter())).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
